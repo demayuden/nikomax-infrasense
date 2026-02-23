@@ -41,58 +41,7 @@ body, html {
     z-index: -1;
 }
 
-/* Center Content */
-.content {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    animation: fadeIn 2s ease;
-}
-
-h1 {
-    font-size: 60px;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-h2 {
-    font-weight: 300;
-    margin-bottom: 25px;
-}
-
-p {
-    max-width: 700px;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 35px;
-}
-
-.btn {
-    padding: 15px 40px;
-    background: linear-gradient(45deg, #10e7c0, #18e8cc);
-    border-radius: 30px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px rgba(4, 234, 191, 0.785);
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-
+/* Top Logos */
 .top-logos {
     position: absolute;
     top: 30px;
@@ -116,7 +65,71 @@ p {
     opacity: 0.8;
 }
 
+/* Center Content */
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
 
+/* Typewriter */
+.typewriter {
+    font-size: 60px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+/* IMPORTANT PART */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* Floating Content */
+.floating-content {
+    animation: float 6s ease-in-out infinite;
+    max-width: 800px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+h2 {
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.btn {
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #10e7c0, #18e8cc);
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(4, 234, 191, 0.7);
+}
 </style>
 </head>
 
@@ -135,22 +148,40 @@ p {
 <div class="overlay"></div>
 
 <div class="content">
-    <h1>A New Chapter in Network Infrastructure Excellence.</h1>
-    <h2>Infrasense is officially appointed as the Authorized Distributor of NIKOMAX</h2>
-    <p>
-        Delivering certified structured cabling solutions with a 
-        manufacturer-backed 25-year warranty, uncompromised authenticity, 
-        and dedicated technical expertise across Malaysia.
-    </p>
-    <a href="mailto:sales@infrasense.tech" class="btn">
-        Contact Us
-    </a>
+
+    <h1 class="typewriter" id="typingText"></h1>
+
+    <script>
+    const text = "A New Chapter in Network Infrastructure Excellence.";
+    const speed = 50; // typing speed
+    let i = 0;
+
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("typingText").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    window.onload = typeWriter;
+    </script>
+
+    <div class="floating-content">
+        <h2>Infrasense is officially appointed as the Authorized Distributor of NIKOMAX.</h2>
+        <p>
+            Delivering certified structured cabling solutions with a
+            manufacturer-backed 25-year warranty, uncompromised authenticity,
+            and dedicated technical expertise across Malaysia.
+        </p>
+        <a href="mailto:sales@infrasense.tech" class="btn">Contact Us</a>
+    </div>
+
 </div>
 
 <script>
-    // Slow down video playback speed
     const video = document.getElementById('bgVideo');
-    video.playbackRate = 0.9; // 0.5 = half speed
+    video.playbackRate = 0.8; // slightly slower cinematic speed
 </script>
 
 </body>
