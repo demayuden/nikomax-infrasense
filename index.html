@@ -1,88 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Infrasense | Authorized Distributor of NIKOMAX</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrasense | Authorized Distributor of NIKOMAX</title>
 
-        header {
-            background-color: #0b3d91;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-        section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+body, html {
+    height: 100%;
+    overflow: hidden;
+    color: white;
+}
 
-        h2 {
-            color: #0b3d91;
-        }
+/* Background Video */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #ff6600;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
+/* Dark Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 15, 40, 0.85);
+    z-index: -1;
+}
 
-        footer {
-            background-color: #0b3d91;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+/* Center Content */
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-size: 60px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+p {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.btn {
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #10e7c0, #18e8cc);
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(4, 234, 191, 0.785);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+
+.top-logos {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    z-index: 10;
+}
+
+.top-logos img {
+    height: 75px;
+    object-fit: contain;
+}
+
+.divider-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>Infrasense</h1>
-    <h3>Authorized Distributor of NIKOMAX Structured Cabling Systems</h3>
-    <a href="#contact" class="btn">Contact Us</a>
-</header>
+<div class="top-logos">
+    <img src="images/infrasense.png" alt="Infrasense Logo">
+    <span class="divider-text">Authorized Distributor of</span>
+    <img src="images/nikomax.png" alt="NIKOMAX Logo">
+</div>
 
-<section>
-    <h2>About NIKOMAX</h2>
+<video autoplay muted loop class="video-bg" id="bgVideo">
+    <source src="video/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="content">
+    <h1>A New Chapter in Network Infrastructure Excellence.</h1>
+    <h2>Infrasense is officially appointed as the Authorized Distributor of NIKOMAX</h2>
     <p>
-        NIKOMAX is a globally recognized manufacturer of structured cabling systems,
-        delivering high-performance copper and fiber solutions for enterprise,
-        commercial, and data center environments.
+        Delivering certified structured cabling solutions with a 
+        manufacturer-backed 25-year warranty, uncompromised authenticity, 
+        and dedicated technical expertise across Malaysia.
     </p>
-</section>
+    <a href="mailto:sales@infrasense.tech" class="btn">
+        Contact Us
+    </a>
+</div>
 
-<section>
-    <h2>Why Choose Infrasense?</h2>
-    <ul>
-        <li>100% Genuine Products</li>
-        <li>25-Year Manufacturer Warranty</li>
-        <li>Technical & Pre-Sales Support</li>
-        <li>Local Stock Availability</li>
-    </ul>
-</section>
-
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: sales@infrasense.tech</p>
-</section>
-
-<footer>
-    © 2026 Infrasense. All Rights Reserved.
-</footer>
+<script>
+    // Slow down video playback speed
+    const video = document.getElementById('bgVideo');
+    video.playbackRate = 0.9; // 0.5 = half speed
+</script>
 
 </body>
 </html>
